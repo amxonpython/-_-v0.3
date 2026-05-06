@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -61,8 +63,8 @@ public class Main {
                 case "exit":
                     working = false;
                     break;
-                case "delete":
-                    System.out.println("введите id тавара который хотите удалить");
+                case "удалить товар":
+                    System.out.println("введите id товара который хотите удалить");
                     int delete = scanner.nextInt();
                     if (deletes[delete] < i){
                         id_tavara = null;
@@ -73,11 +75,26 @@ public class Main {
 
                         System.out.println("товар " + name_tavara[delete] + " был удалём");
                     }else{
-                        System.out.println("тавар не найдей");
+                        System.out.println("товар не найдей");
                     }
 
                     scanner.nextLine();
                     break;
+
+                case "список товара":
+                    if (i > 0){
+                        for (int i1 = 0; i1 <= i; i1++){
+                            System.out.println("id: " + id_tavara[i1] + " название: " + name_tavara[i1] + " цена: " + price_tavara[i1]);
+                        }
+                    }else {
+                        System.out.println("товар не найден");
+                    }
+                    break;
+                    /*
+                case "help":
+                    comands.help();
+                    break;
+                     */
                 default:
                     System.out.println("Error: неизвестная команда");
                     break;
